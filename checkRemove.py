@@ -1,9 +1,13 @@
+import MetaTrader5 as mt5
+from configs import *
 
 def checkRemove():
-    
+    print("Began checking remove...")
+
     orders = mt5.orders_get(symbol="EURUSD")
 
     if(len(orders) == positionsMultiplier):
+        print("Removing positions left")
         for ordem in orders:
             request = {
                 "action": mt5.TRADE_ACTION_REMOVE,
@@ -14,7 +18,6 @@ def checkRemove():
             result = mt5.order_send(request)
 
             print("result: " + str(result))
-        mt5.shutdown()
-        exit()
+        # exit()
 
-    mt5.shutdown()
+    print("...ended checking remove.")

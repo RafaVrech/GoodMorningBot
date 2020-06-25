@@ -17,10 +17,8 @@ start()
 
 ### SCHEDULES ###
 
-# schedule.every(1).day.at("08:01").do(placePositions)
-# schedule.every(30).seconds.do(checkRemove)
-
-placePositions()
+schedule.every(1).day.at("08:01").do(placePositions)
+schedule.every(30).seconds.do(checkRemove)
 
 
 

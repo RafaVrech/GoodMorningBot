@@ -4,6 +4,7 @@ import pytz
 import MetaTrader5 as mt5
 
 def placePositions():
+    print("Began placing positions...")
 
     # Getting 7h candle
     # (-1h because metatrader is in UTC+2)
@@ -58,3 +59,5 @@ def placePositions():
             "type_filling": mt5.ORDER_FILLING_FOK,
         })
         print("resultSell: " + str(resultSell))
+        
+    print("...ended placing positions.")
