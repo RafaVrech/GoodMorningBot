@@ -2,6 +2,7 @@ import atexit
 import schedule
 import time
 from checkRemove import checkRemove
+from checkTrailing import checkTrailing
 from placePositions import placePositions
 from mt5API import stop, start
 
@@ -17,9 +18,10 @@ start()
 
 ### SCHEDULES ###
 
-schedule.every(1).day.at("08:01").do(placePositions)
-schedule.every(30).seconds.do(checkRemove)
-
+# schedule.every(1).day.at("08:01").do(placePositions)
+# placePositions()
+# schedule.every(5).seconds.do(checkRemove)
+schedule.every(5).seconds.do(checkTrailing)
 
 
 ### LOOP ###

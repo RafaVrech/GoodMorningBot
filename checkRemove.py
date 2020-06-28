@@ -2,7 +2,7 @@ import MetaTrader5 as mt5
 from configs import *
 
 def checkRemove():
-    print("Began checking remove...")
+    # print("Began checking remove...")
 
     orders = mt5.orders_get(symbol="EURUSD")
 
@@ -20,4 +20,4 @@ def checkRemove():
             print("result: " + str(result))
         # exit()
 
-    print("...ended checking remove.")
+    # print("...ended checking remove.")

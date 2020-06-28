@@ -14,19 +14,36 @@ def placePositions():
     # Exploding 7h candle info
     (time, open, high, low, close, tick_volume, spread, real_volume) = candle7[0]
 
+    print("... with values:")
+
+    print("________________________________________________________________________________________________________________________")
+    print("7h Candle: " + str(candle7))
+    print("Actual tick:" + str(mt5.symbol_info_tick("EURUSD")))
+    print("________________________________________________________________________________________________________________________")
+
     # Defining common values
     bt = round(high + triggerOffset, 5)
-    st = round(low - triggerOffset, 5)
-    tpSell = round(st - takeProfit, 5)
-    slSell = round(st + stopLoss, 5)
     tpBuy = round(bt + takeProfit, 5)
     slBuy = round(bt - stopLoss, 5)
 
+    st = round(low - triggerOffset, 5)
+    tpSell = round(st - takeProfit, 5)
+    slSell = round(st + stopLoss, 5)
+
+
+    print("Buy Trigger: " + str(bt))
+    print("Take Profit BUY: " + str(tpBuy))
+    print("Stop Loss BUY: " + str(slBuy))
+    print("_____________________________________")
+    print("Sell Trigger: " + str(st))
+    print("Take Profit SELL: " + str(tpSell))
+    print("Stop Loss SELL: " + str(slSell))
+ 
+
+    print("________________________________________________________________________________________________________________________")
+
     # Placing positions
     for i in range(positionsMultiplier):
-        symbol = "EURUSD"
-        lot = 0.1
-        deviation = 20
 
         # Place buy position
         resultBuy = mt5.order_send({
