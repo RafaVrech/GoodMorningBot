@@ -14,18 +14,16 @@ def stopMT5():
 
 start()
 
-
-
 ### SCHEDULES ###
 
 # schedule.every(1).day.at("08:01").do(placePositions)
-# placePositions()
-# schedule.every(5).seconds.do(checkRemove)
-schedule.every(5).seconds.do(checkTrailing)
-
+placePositions()
+schedule.every(5).seconds.do(checkRemove)
+# schedule.every(1).seconds.do(checkTrailing)
 
 ### LOOP ###
 
 while True:
+    checkTrailing()
     schedule.run_pending()
     time.sleep(1)

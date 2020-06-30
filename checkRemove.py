@@ -4,7 +4,7 @@ from configs import *
 def checkRemove():
     # print("Began checking remove...")
 
-    orders = mt5.orders_get(symbol="EURUSD")
+    orders = mt5.orders_get(symbol=symbol)
 
     if(len(orders) == positionsMultiplier):
         print("Removing positions left")
@@ -12,7 +12,7 @@ def checkRemove():
             request = {
                 "action": mt5.TRADE_ACTION_REMOVE,
                 "order": ordem.ticket,
-                "symbol": "EURUSD"
+                "symbol": "GBPJPY"
             }
             
             result = mt5.order_send(request)
