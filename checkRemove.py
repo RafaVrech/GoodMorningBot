@@ -6,6 +6,7 @@ def checkRemove():
 
     orders = mt5.orders_get(symbol=symbol)
 
+#orders is not None and 
     if(len(orders) == positionsMultiplier):
         print("Removing positions left")
         for ordem in orders:

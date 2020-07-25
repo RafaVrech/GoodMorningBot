@@ -7,10 +7,8 @@ def placePositions():
     print("\nBegan placing positions at BRAZIL time: " + str(datetime.utcnow() - timedelta(hours=3)) + " ...")
 
     # Getting 7h candle
-    # (-1h because metatrader is in UTC+2)
     data = datetime.utcnow() + timedelta(hours=3)
-    # candle7 = mt5.copy_rates_from(symbol, mt5.TIMEFRAME_H1, data, 1)
-    candle7 = mt5.copy_rates_from(symbol, mt5.TIMEFRAME_M1, datetime.now() + timedelta(hours=3), 1)
+    candle7 = mt5.copy_rates_from(symbol, mt5.TIMEFRAME_H1, data, 1)
 
     # Exploding 7h candle info
     (time, open, high, low, close, tick_volume, spread, real_volume) = candle7[0]
@@ -30,11 +28,11 @@ def placePositions():
     # Defining common values
     bt = round(high + triggerOffset, 5)
     tpBuy = round(bt + takeProfit, 5)
-    slBuy = round(bt - stopLoss, 5)
+    slBuy = round(low - stopLossOffset, 5)
 
     st = round(low - triggerOffset, 5)
     tpSell = round(st - takeProfit, 5)
-    slSell = round(st + stopLoss, 5)
+    slSell = round(high + stopLossOffset, 5)
 
 
     print("Buy Trigger:\t\t" + str(bt))
